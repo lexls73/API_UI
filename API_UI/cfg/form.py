@@ -34,7 +34,6 @@ def cfg_edit_form():
                     name="user",
                     #placeholder="User",
                     required=True,
-                    read_only=True,
                     width="150px"
                 ),
                 rx.input(

@@ -1,7 +1,7 @@
 import reflex as rx
 from .state import EntitiesState
 
-ENVIRONMENTS = ["integration", "appdev", "grifols", "apfc","qa","salesaandbox","acssandbox","curia","canary","fis","skbiotek"]
+ENVIRONMENTS = ["integration", "appdev", "grifols", "apfc","qa","salessandbox","acssandbox","curia","canary","fis","skbiotek"]
 CONNECTION_MODES = ["insert", "update", "delete"]
 MULTI_SELECT_OPTIONS = "devices,elements,virtual-entities,value-associations,associations"
 
