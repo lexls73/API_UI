@@ -1,1 +1,10 @@
-
+*.db
+__pycache__/
+.web
+assets/external/
+.states
+*.py[cod]
+alembic/
+alembic.ini
+*.JPG
+*.DS_Store
