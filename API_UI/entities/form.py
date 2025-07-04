@@ -82,10 +82,16 @@ def form_component() -> rx.Component:
             align="center"
         ),
         rx.divider(),
-        rx.text(f"Selected environment: {EntitiesState.environment}"),
-        rx.text(f"Selected Excel Path: {EntitiesState.excel_path}"),
-        rx.text(f"Selected entities: {EntitiesState.selected_options}"),
-        rx.text(f"Connection mode: {EntitiesState.connection_mode}"),
+        rx.cond(
+            EntitiesState.data_getting,
+            rx.vstack(
+                rx.text(f"Selected environment: {EntitiesState.environment}"),
+                rx.text(f"Selected Excel Path: {EntitiesState.excel_path}"),
+                rx.text(f"Selected entities: {EntitiesState.selected_options}"),
+                rx.text(f"Connection mode: {EntitiesState.connection_mode}"),
+            ),
+            rx.fragment()
+        ),
         width="150%", # o "90%", o "100%" si quieres que abarque todo el ancho.
         # Considera usar 'max_width' si quieres un límite superior
         # para evitar que sea demasiado ancho en pantallas muy grandes.

@@ -10,26 +10,26 @@ from . import form
 #         padding="2"
 #     )
 
-def foreach_callback(text):
-    return rx.box(rx.text(text))
+# def foreach_callback(text):
+#     return rx.box(rx.text(text))
 
-def contact_page_list() -> rx.Component:
-    return base_page(
-        rx.vstack(
-            rx.heading("Contact Entries", size="5", text_align="center"),
-            rx.foreach(
-                ["abc","abc","cde"],
-                foreach_callback
-            ),
-            # rx.foreach(
-            #     state.ContactState.entries,
-            #     contact_entry_list_item
-            # ),
-            spacing="5",
-            align="center",
-            min_height="85vh",
-        )
-    )
+# def contact_page_list() -> rx.Component:
+#     return base_page(
+#         rx.vstack(
+#             rx.heading("Contact Entries", size="5", text_align="center"),
+#             rx.foreach(
+#                 ["abc","abc","cde"],
+#                 foreach_callback
+#             ),
+#             # rx.foreach(
+#             #     state.ContactState.entries,
+#             #     contact_entry_list_item
+#             # ),
+#             spacing="5",
+#             align="center",
+#             min_height="85vh",
+#         )
+#     )
 
 @reflex_local_auth.require_login
 def abm_page() -> rx.Component:
@@ -60,4 +60,4 @@ def abm_page() -> rx.Component:
             min_height="80vh",
             id="my_child"
         )
-    return base_page(my_child, hide_navbar=False)
+    return base_page(my_child)

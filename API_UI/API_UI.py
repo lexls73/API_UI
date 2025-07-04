@@ -10,8 +10,8 @@ from .auth.pages import(
     my_registration_page,
     my_logout_page
 )
-from .auth.state import SessionState
-from . import navigation,pages,entities,cfg
+#from .auth.state import SessionState
+from . import navigation,pages,entities,cfg,getdata,getentities,lastvalues,watchdog
 
 class State(rx.State):
     label = "Hello, Reflex!"
@@ -77,6 +77,30 @@ app.add_page(
     route=navigation.routes.ENTITIES_ABM, 
     title="Enities CRUD",
     on_load=entities.EntitiesState.reset_fields
+    )
+app.add_page(
+    getdata.get_data_page,
+    route=navigation.routes.GET_TIME_SERIES, 
+    title="Get Time Series",
+    on_load=getdata.GetDataState.reset_fields
+    )
+app.add_page(
+    lastvalues.get_last_value_page,
+    route=navigation.routes.GET_LAST_VALUE, 
+    title="Get Last Value",
+    on_load=lastvalues.GetLastValueState.reset_fields
+    )
+app.add_page(
+    getentities.get_entity_page,
+    route=navigation.routes.GET_ENTITIES, 
+    title="Get Entity",
+    on_load=getentities.GetEntitiesState.reset_fields
+    )
+app.add_page(
+    watchdog.watchdog_page,
+    route=navigation.routes.WATCHDOG, 
+    title="Watchdog",
+    on_load=watchdog.WatchdogState.reset_fields
     )
 app.add_page(
         cfg.cfg_page,

@@ -10,6 +10,7 @@ class EntitiesState(rx.State):
     environment: str = ""
     connection_mode: str = ""
     is_submitting: bool = False
+    data_getting: bool = False
     
     def reset_fields(self):
         self.selected_options = ""
@@ -17,6 +18,7 @@ class EntitiesState(rx.State):
         self.environment = ""
         self.connection_mode = ""
         self.is_submitting = False
+        self.data_getting = False
         yield
 
     def handle_submit(self, form_data: dict):
@@ -32,17 +34,12 @@ class EntitiesState(rx.State):
         
         entities_list = self.selected_options.split(',')
 
-        # print(f"Opciones seleccionadas: {entities_list}")
-        # print(f"Ruta del archivo Excel: {self.excel_path}")
-        # print(f"Entorno: {self.environment}")
-        # print(f"Modo de conexión: {self.connection_mode}")
-
         client = api_client.api_helper.get_environment(self.environment)
-        
+    
         api_client.api_helper.write_entities_impl(
             api_client=client, mode=self.connection_mode, excel_file=self.excel_path , entity_types=entities_list
         )
-
+        self.data_getting = True
         self.is_submitting = False
         yield
 

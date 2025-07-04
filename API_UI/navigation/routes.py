@@ -8,3 +8,7 @@ PRICING_ROUTE = "/pricing"
 ENTITIES_ABM = "/entities/abm"
 CONFIGURATION_PAGE = "/cfg"
 LOGOUT_ROUTE = '/logout'
+GET_TIME_SERIES = '/getts'
+GET_ENTITIES = '/getentities'
+GET_LAST_VALUE = '/getlastvalue'
+WATCHDOG = '/watchdog'

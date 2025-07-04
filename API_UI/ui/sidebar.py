@@ -128,6 +128,10 @@ def sidebar_items() -> rx.Component:
     return rx.vstack(
         sidebar_item("Home", "home", navigation.routes.HOME_ROUTE),
         sidebar_item("Entities CRUD", "square-library", navigation.routes.ENTITIES_ABM),
+        sidebar_item("Get Entity Data", "database", navigation.routes.GET_TIME_SERIES),
+        sidebar_item("Get Last Value", "chart-column-stacked", navigation.routes.GET_LAST_VALUE),
+        sidebar_item("Get Entities", "boom-box", navigation.routes.GET_ENTITIES),
+        sidebar_item("Wacthdog", "dog", navigation.routes.WATCHDOG),
         sidebar_item("Configuration", "settings", navigation.routes.CONFIGURATION_PAGE),
         sidebar_item("About", "circle_help", navigation.routes.ABOUT_ROUTE),
         spacing="0",
