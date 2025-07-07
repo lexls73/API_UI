@@ -23,6 +23,7 @@ class WatchdogState(rx.State):
     
     @staticmethod
     def get_agent(env: str, agent_id: str):
+
         os.environ["AIZON_ENVIRONMENT"] = env
         PATH = "DATA/WATCHDOG/"
         url = f"/agents/{agent_id}"
@@ -169,18 +170,11 @@ class WatchdogState(rx.State):
         self.city_country = form_data.get("city_country", "Barcelona, Spain").strip()
         yield
 
-        # print(self.mode)
-        # print(self.environment)
-        # print(self.agent_id)
-        # print(self.file_name)
-        # print(self.agent_name)
-        # print(self.triggering_type)
-        # print(self.custom_tags)
-        # print(self.profiles)
-
         if self.mode == "get":
+
             self.get_agent(self.environment,self.agent_id)
             self.data_getting = True
+
         elif self.mode == "create":
 
             if cs := '':
@@ -196,10 +190,6 @@ class WatchdogState(rx.State):
             else:
                 isa = []
 
-            # print(cs)
-            # print(pr)
-
-            '''
             self.create_agent(
                 env=self.environment,
                 file_name=self.file_name,
@@ -213,6 +203,6 @@ class WatchdogState(rx.State):
                 profiles=pr,
             )
             yield
-            '''
+
         self.is_submitting = False
         yield
